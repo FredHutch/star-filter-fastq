@@ -28,4 +28,5 @@ ls -lahtr output
 rm "${R1}" "${R2}"
 gzip -c output/Unmapped.out.mate1 > "${R1}"
 gzip -c output/Unmapped.out.mate2 > "${R2}"
-mv output/Log.final.out "${R1}.log"
+LOG_NAME="\$(echo $R1 | sed 's/.fastq//' | sed 's/.gz//' | sed 's/.fq//')"
+mv output/Log.final.out "${LOG_NAME}.log"

@@ -26,4 +26,5 @@ ls -lahtr output
 # Rename the output files
 rm "${R1}"
 gzip -c output/Unmapped.out.mate1 > "${R1}"
-mv output/Log.final.out "${R1}.log"
+LOG_NAME="\$(echo $R1 | sed 's/.fastq//' | sed 's/.gz//' | sed 's/.fq//')"
+mv output/Log.final.out "${LOG_NAME}.log"
